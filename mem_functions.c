@@ -6,10 +6,11 @@
 /*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:55:15 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/05/17 23:44:55 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/05/18 10:27:25 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "main.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

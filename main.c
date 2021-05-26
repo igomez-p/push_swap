@@ -6,7 +6,7 @@
 /*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 20:17:44 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/05/18 00:00:11 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/05/18 19:26:10 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 int main(int argc, char *argv[])
 {
 	t_stack stack;
-	stack.stack_a = NULL;
-	stack.stack_b = NULL;
-
+	
+	init_struct(&stack);
 	if (argc < 3)
 		clean_exit(&stack);
 	read_stack(&stack, argc, argv);

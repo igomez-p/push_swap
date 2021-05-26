@@ -6,7 +6,7 @@
 /*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 20:19:29 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/05/18 00:00:15 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/05/18 19:25:38 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 typedef struct s_stack {
 	int			*stack_a;
 	int			*stack_b;
+	int			total;
 	// TODO: array de enteros donde se guarden los resultados de las operaciones
 	//		 que se van realizando (también creados como macros)
 }				t_stack;
@@ -64,7 +65,8 @@ void	rotate(t_stack *s, int op);
 void	reverse_rotate(t_stack *s, int op);
 
 // Gestión
-int		check_arguments(char *arg, int i);
+void	init_struct(t_stack *s);
+int		check_arguments(char *arg, int i, int *num);
 void	clean_exit(t_stack *s);
 void	read_stack(t_stack *s, int narg, char **arg);
 void	write_result(t_stack *s);
@@ -73,3 +75,4 @@ void	write_result(t_stack *s);
 int		ft_atoi(const char *str);
 int		ft_isdigit(int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	*ft_memset(void *b, int c, size_t len);
