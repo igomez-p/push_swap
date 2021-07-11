@@ -6,7 +6,7 @@
 #    By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 20:15:03 by igomez-p          #+#    #+#              #
-#    Updated: 2021/05/18 10:27:32 by igomez-p         ###   ########.fr        #
+#    Updated: 2021/07/11 18:34:59 by igomez-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,9 @@ SRC =	main.c \
 		management.c \
 		str_functions.c \
 		number_functions.c \
-		mem_functions.c
+		mem_functions.c	\
+		operations.c \
+		instructions.c
 
 OBJ = $(SRC:.c=.o)
 

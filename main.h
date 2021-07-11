@@ -6,7 +6,7 @@
 /*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 20:19:29 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/05/18 19:25:38 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/07/11 18:37:23 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@
 typedef struct s_stack {
 	int			*stack_a;
 	int			*stack_b;
-	int			total;
+	int			total_a;
+	int			total_b;
 	// TODO: array de enteros donde se guarden los resultados de las operaciones
 	//		 que se van realizando (también creados como macros)
 }				t_stack;
@@ -48,15 +49,12 @@ typedef struct s_stack {
 // Operaciones
 void	swap_a(t_stack *s);
 void	swap_b(t_stack *s);
-void	swap_ab(t_stack *s);
 void	push_a(t_stack *s);
 void	push_b(t_stack *s);
 void	rotate_a(t_stack *s);
 void	rotate_b(t_stack *s);
-void	rotate_ab(t_stack *s);
 void	reverse_rotate_a(t_stack *s);
 void	reverse_rotate_b(t_stack *s);
-void	reverse_rotate_ab(t_stack *s);
 
 // Instrucciones
 void	swap(t_stack *s, int op);
@@ -76,3 +74,4 @@ int		ft_atoi(const char *str);
 int		ft_isdigit(int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memset(void *b, int c, size_t len);
+void	*ft_memcpy(void *dst, const void *src, size_t n);

@@ -6,7 +6,7 @@
 /*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 23:08:08 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/05/18 19:27:36 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/07/11 19:11:54 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	init_struct(t_stack *s)
 {
 	s->stack_a = NULL;
 	s->stack_b = NULL;
-	s->total = 0;
+	s->total_a = 0;
+	s->total_b = 0;
 }
 
 int	check_arguments(char *arg, int i, int *num)
@@ -63,16 +64,16 @@ void	read_stack(t_stack *s, int narg, char **arg)
 		clean_exit(s);
 	ft_memset(&s->stack_a[0], 0, narg - 1);
 	i = 0;
-	printf("narg: %d\n", narg);
+	//printf("narg: %d\n", narg);
 	while (++i < narg)
 	{
 		if (!check_arguments(arg[i], i, &num))
 			clean_exit(s);
-		printf("num: %d\n", num);
+		//printf("num: %d\n", num);
 		s->stack_a[i - 1] = num;			
 	}
 	s->stack_a[i - 1] = 0;
-	s->total = i - 1;
+	s->total_a = i - 1;
 }
 
 void	write_result(t_stack *s)
@@ -80,9 +81,17 @@ void	write_result(t_stack *s)
 	int	i;
 
 	i = 0;
-	while (i < s->total)
+	write(1, "STACK A: ", 10);
+	while (i < s->total_a)
 	{
 		printf("%d ", s->stack_a[i]);
+		i++;
+	}
+	i = 0;
+	write(1, "STACK B: ", 10);
+	while (i < s->total_b)
+	{
+		printf("%d ", s->stack_b[i]);
 		i++;
 	}
 }
