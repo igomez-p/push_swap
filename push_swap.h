@@ -6,7 +6,7 @@
 /*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 20:19:29 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/12/07 10:25:37 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/07 11:54:35 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 #define RRB		"rrb"
 #define RRR		"rrr"
 
-#define OK		1
-#define FAIL	0
+#define OK		0
+#define FAIL	1
 
 #define	OP_A	1
 #define OP_B	2
@@ -64,10 +64,11 @@ void	reverse_rotate(t_stack *s, int op);
 
 // Gestión
 void	init_struct(t_stack *s);
-void	clean_exit(t_stack *s);
+void	clean_exit(t_stack *s, int error);
 void	read_stack(t_stack *s, int narg, char **arg);
 int		check_digit(char *num);
 int		check_is_repeated(char **num, int i);
+void	sort(t_stack *s);
 
 // Libft
 int		ft_atoi(const char *str);

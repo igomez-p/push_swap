@@ -6,7 +6,7 @@
 /*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 20:17:44 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/12/07 09:53:31 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/07 11:57:22 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,12 @@ int main(int argc, char *argv[])
 	
 	init_struct(&stack);
 	read_stack(&stack, argc, argv);
+	sort(&stack);
 	printf("len %d\n", stack.len_a);
 	for (int i = 0; i < stack.len_a; i++)
 		printf("%d ", stack.stack_a[i]);
 	printf("\n");
-	//write_result(&stack);
-
-	//checker(&stack);
+	clean_exit(&stack, OK);
 
 	return (0);
 }

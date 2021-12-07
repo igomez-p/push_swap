@@ -6,13 +6,14 @@
 #    By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 20:15:03 by igomez-p          #+#    #+#              #
-#    Updated: 2021/12/07 09:52:10 by igomez-p         ###   ########.fr        #
+#    Updated: 2021/12/07 11:49:08 by igomez-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 SRC =	push_swap.c \
+		src/algorithm.c		\
 		src/checker.c		\
 		src/management.c 	\
 		src/operations.c 	\
