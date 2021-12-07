@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mem_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
+/*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:55:15 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/05/18 10:27:25 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/07 07:38:26 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "../push_swap.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

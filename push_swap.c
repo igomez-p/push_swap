@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
+/*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 20:17:44 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/07/11 19:20:45 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/07 09:53:31 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "push_swap.h"
 
-void	checker(t_stack *s)
+/*void	checker(t_stack *s)
 {
 	char op[5];
 	
@@ -80,19 +80,21 @@ void	checker(t_stack *s)
 		write_result(s);
 		ft_memset(op, 0, 5);
 	}
-}
+}*/
 
 int main(int argc, char *argv[])
 {
 	t_stack stack;
 	
 	init_struct(&stack);
-	if (argc < 3)
-		clean_exit(&stack);
 	read_stack(&stack, argc, argv);
-	write_result(&stack);
+	printf("len %d\n", stack.len_a);
+	for (int i = 0; i < stack.len_a; i++)
+		printf("%d ", stack.stack_a[i]);
+	printf("\n");
+	//write_result(&stack);
 
-	checker(&stack);
+	//checker(&stack);
 
 	return (0);
 }

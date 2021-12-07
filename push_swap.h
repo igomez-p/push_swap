@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
+/*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 20:19:29 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/07/11 18:37:23 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/07 10:25:37 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@
 typedef struct s_stack {
 	int			*stack_a;
 	int			*stack_b;
-	int			total_a;
-	int			total_b;
+	int			len_a;
+	int			len_b;
 	// TODO: array de enteros donde se guarden los resultados de las operaciones
 	//		 que se van realizando (también creados como macros)
 }				t_stack;
@@ -64,14 +64,17 @@ void	reverse_rotate(t_stack *s, int op);
 
 // Gestión
 void	init_struct(t_stack *s);
-int		check_arguments(char *arg, int i, int *num);
 void	clean_exit(t_stack *s);
 void	read_stack(t_stack *s, int narg, char **arg);
-void	write_result(t_stack *s);
+int		check_digit(char *num);
+int		check_is_repeated(char **num, int i);
 
 // Libft
 int		ft_atoi(const char *str);
 int		ft_isdigit(int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+size_t	ft_strlen(const char *s);
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
+char	**ft_split(char const *s1, char c);
+char	*ft_strdup(const char *s1);

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   str_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
+/*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:55:26 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/05/17 23:47:28 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/07 07:38:36 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "../push_swap.h"
 
 char	*ft_strchr(const char *s, int c)
 {

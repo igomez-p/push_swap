@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   number_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
+/*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:55:21 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/05/17 23:46:58 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/07 07:38:22 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "../push_swap.h"
 
 int	ft_isdigit(int c)
 {

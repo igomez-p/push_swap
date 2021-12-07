@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
+/*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 20:38:51 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/07/11 18:37:43 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/07 07:38:01 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "../push_swap.h"
 
 void	swap(t_stack *s, int op)
 {
