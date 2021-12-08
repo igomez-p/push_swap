@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 10:45:21 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/12/07 14:24:54 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/08 14:20:16 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static void	three_sort(t_stack *s)
 {
 	while (!in_order(s->stack_a, s->len_a))
 	{
-		printf("stack a [%d %d %d]\n", s->stack_a[0], s->stack_a[1], s->stack_a[2]);
 		if (s->stack_a[0] > s->stack_a[1] && s->stack_a[0] < s->stack_a[2]
 			&& s->stack_a[1] < s->stack_a[2])
 			swap(s, OP_A);
@@ -70,13 +69,9 @@ void	five_sort(t_stack *s)
 			rotate(s, OP_A);
 		push(s, OP_B);
 	}
-	printf("stack a [%d %d %d] | stack b [%d %d]\n", s->stack_a[0], s->stack_a[1], s->stack_a[2], s->stack_b[0], s->stack_b[1]);
 	three_sort(s);
-	printf("-3\n");
-	push(s, OP_AB);
-	printf("-4-\n");
-    push(s, OP_AB);
-	printf("-5-\n");
+	push(s, OP_A);
+	push(s, OP_A);
 }
 
 void	sort(t_stack *s)
@@ -84,9 +79,7 @@ void	sort(t_stack *s)
 	if (s->len_a <= 3)
 		three_sort(s);
 	else if (s->len_a <= 5)
-		push(s, OP_B);
-	printf("stack a [%d %d %d %d] | stack b [%d]\n", s->stack_a[0], s->stack_a[1], s->stack_a[2], s->stack_a[3], s->stack_b[0]);
-		//five_sort(s);
+		five_sort(s);
 	/*else if (s->len_a <= 50)
 		selection_sort(s->stack_a, s->stack_b);
 	else

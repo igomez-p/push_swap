@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mem_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:55:15 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/12/07 07:38:26 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/08 14:12:46 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char	*d;
-	unsigned char	*s;
+	int	*d;
+	int	*s;
 	size_t			i;
 
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
+	d = (int *)dst;
+	s = (int *)src;
 	i = 0;
 	if (!dst && !src)
 		return (dst);
@@ -33,14 +33,14 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char	*b2;
+	int	*b2;
 	size_t			i;
 
 	i = 0;
-	b2 = (unsigned char *)b;
+	b2 = (int *)b;
 	while (i < len)
 	{
-		b2[i] = (unsigned char)c;
+		b2[i] = (int)c;
 		i++;
 	}
 	return (b);
@@ -48,10 +48,10 @@ void	*ft_memset(void *b, int c, size_t len)
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*aux;
+	int	*aux;
 	size_t	i;
 
-	aux = (char *)s;
+	aux = (int *)s;
 	i = 0;
 	while (i < n)
 	{

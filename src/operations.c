@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 20:19:15 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/12/07 14:38:18 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/08 14:15:30 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,20 @@ void	push_a(t_stack *s)
 	ft_memset(temp, 0, s->len_a + 1);
 	ft_memcpy(&temp[1], s->stack_a, s->len_a);
 	temp[0] = s->stack_b[0];
-	s->len_a++;
 	free(s->stack_a);
-	s->stack_a = (int *)malloc(sizeof(int)*s->len_a);
+	s->stack_a = (int *)malloc(sizeof(int)*(++s->len_a));
 	if (!s->stack_a)
 		return ;
 	ft_memset(s->stack_a, 0, s->len_a);
 	ft_memcpy(s->stack_a, temp, s->len_a);
-	ft_memcpy(s->stack_b, &s->stack_b[1], s->len_b - 1);
-	s->len_b--;
 	free(temp);
+	temp = (int *)malloc(sizeof(int)*(--s->len_b));
+	if (!temp)
+		return ;
+	ft_memset(temp, 0, s->len_b);
+	ft_memcpy(temp, &s->stack_b[1], s->len_b);
+	free(s->stack_b);
+	s->stack_b = temp;
 }
 
 void	push_b(t_stack *s)
@@ -80,18 +84,10 @@ void	push_b(t_stack *s)
 	temp = (int *)malloc(sizeof(int)*(--s->len_a));
 	if (!temp)
 		return ;
-	printf("stack a [%d %d %d %d %d]\n", s->stack_a[0], s->stack_a[1], s->stack_a[2], s->stack_a[3], s->stack_a[4]);
 	ft_memset(temp, 0, s->len_a);
 	ft_memcpy(temp, &s->stack_a[1], s->len_a);
-	printf("temp [%d %d %d %d]\n", temp[0], temp[1], temp[2], temp[3]);
 	free(s->stack_a);
 	s->stack_a = temp;
-	/*s->stack_a = (int *)malloc(sizeof(int)*s->len_a);
-	if (!s->stack_a)
-		return ;
-	ft_memset(s->stack_a, 0, s->len_a);
-	ft_memcpy(s->stack_a, temp, s->len_a);
-	free(temp);*/
 }
 
 void	rotate_a(t_stack *s)
