@@ -6,25 +6,11 @@
 /*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 10:45:21 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/12/10 06:10:48 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/10 07:16:01 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-int	is_sorted(int *s, int len)
-{
-	int	i;
-
-	i = 0;
-	while (i < len - 1)
-	{
-		if (s[i] > s[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
 void	three_sort(t_stack *s)
 {
@@ -72,6 +58,55 @@ void	five_sort(t_stack *s)
 	three_sort(s);
 	push(s, OP_A);
 	push(s, OP_A);
+}
+
+static void	large_sortb(t_stack *s)
+{
+	int	i;
+	int	max;
+
+	if (is_sorted(s->stack_a, s->len_a))
+	{
+		while (s->len_b)
+		{
+			i = 0;
+			max = max_number(s->stack_b, s->len_b);
+			while (i < s->len_b)
+			{
+				if (s->stack_b[i] == max)
+					i = rotate_push(s, i, OP_B);
+				else if (s->stack_b[s->len_b - i - 1] == max)
+					i = reverse_rotate_push(s, i + 1, OP_B);
+				else
+					i++;
+			}
+		}
+	}
+}
+
+void	large_sort(t_stack *s)
+{
+	int	i;
+	int	mid;
+
+	i = 0;
+	if (s->len_a > 3 && !is_sorted(s->stack_a, s->len_a))
+	{
+		mid = midpoint(s->stack_a, s->len_a);
+		while (i < s->len_a && s->len_a > 3)
+		{
+			if (s->stack_a[i] < mid)
+				i = rotate_push(s, i, OP_A);
+			else if (s->stack_a[s->len_a - i - 1] < mid)
+				reverse_rotate_push(s, i + 1, OP_A);
+			else
+				i++;
+		}
+		three_sort(s);
+	}
+	large_sortb(s);
+	while (s->len_b)
+		large_sort(s);
 }
 
 void	sort(t_stack *s)

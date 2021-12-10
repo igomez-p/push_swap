@@ -6,7 +6,7 @@
 #    By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 20:15:03 by igomez-p          #+#    #+#              #
-#    Updated: 2021/12/09 14:06:51 by igomez-p         ###   ########.fr        #
+#    Updated: 2021/12/10 07:20:13 by igomez-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC =	push_swap.c \
 		src/management.c 	\
 		src/operations.c 	\
 		src/instructions.c	\
-		src/large_sort.c	\
+		src/utils.c			\
 		library/ft_split.c			\
 		library/str_functions.c 	\
 		library/number_functions.c 	\
@@ -35,11 +35,9 @@ $(NAME): $(OBJ)
 		gcc -Wall -Werror -Wextra -g $(OBJ) -o $(NAME)
 
 clean:
-		#make -C minilibx-$(OS) clean
 		rm -rf $(OBJ) 
 
 fclean: clean
-		#make -C minilibx-$(OS) clean
 		rm -rf $(NAME)
 
 re : fclean all
