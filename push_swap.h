@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 20:19:29 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/12/10 07:21:35 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/10 18:22:25 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int		reverse_rotate_push(t_stack *s, int n, int op);
 int		max_number(int *s, int len);
 int		midpoint(int *stack, int len);
 
-int		ft_atoi(const char *str);
+int		ft_atoi(const char *str, t_stack *s);
 int		ft_isdigit(int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *s);
@@ -77,5 +77,6 @@ void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 char	**ft_split(char const *s1, char c);
 char	*ft_strdup(const char *s1);
+char	*ft_strchr(const char *s, int c);
 
 #endif

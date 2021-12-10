@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   number_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:55:21 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/12/07 07:38:22 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/10 17:51:00 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, t_stack *s)
 {
-	int	i;
-	int	num;
-	int	sig;
+	int		i;
+	long	num;
+	int		sig;
 
 	num = 0;
 	sig = 1;
@@ -42,7 +42,7 @@ int	ft_atoi(const char *str)
 		num = (num * 10) + (str[i] - 48);
 		i++;
 	}
-	if (num * sig > 2147483647)
-		return (-1);
-	return (num * sig);
+	if ((num * sig > __INT_MAX__) || (num * sig < (-1 * __INT_MAX__)))
+		clean_exit(s, 1);
+	return ((int)num * sig);
 }
