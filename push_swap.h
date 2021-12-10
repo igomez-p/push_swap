@@ -6,7 +6,7 @@
 /*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 20:19:29 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/12/07 11:54:35 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/09 14:09:01 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,9 @@ void	read_stack(t_stack *s, int narg, char **arg);
 int		check_digit(char *num);
 int		check_is_repeated(char **num, int i);
 void	sort(t_stack *s);
+int		is_sorted(int *s, int len);
+void	three_sort(t_stack *s);
+void    large_sort(t_stack *s);
 
 // Libft
 int		ft_atoi(const char *str);

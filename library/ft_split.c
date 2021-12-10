@@ -6,7 +6,7 @@
 /*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:55:02 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/12/07 10:15:30 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/10 06:54:33 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,8 @@ char	**ft_split(char const *s1, char c)
 	char	*aux;
 	char	**num;
 
-	if (!s1)
-		return (NULL);
 	num = (char **)malloc(sizeof(char *) * (cont_char(s1, c) + 1));
-	if (!num)
+	if (!num || !s1)
 		return (NULL);
 	i[0] = 0;
 	i[1] = 0;
