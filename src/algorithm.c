@@ -6,7 +6,7 @@
 /*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 10:45:21 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/12/10 07:16:01 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/11 10:58:06 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	three_sort(t_stack *s)
 {
-	while (!is_sorted(s->stack_a, s->len_a) && s->len_a <= 3)
+	if (!is_sorted(s->stack_a, s->len_a) && s->len_a == 2)
+		swap(s, OP_A);
+	else if (!is_sorted(s->stack_a, s->len_a) && s->len_a == 3)
 	{
 		if (s->stack_a[0] > s->stack_a[1] && s->stack_a[0] < s->stack_a[2]
 			&& s->stack_a[1] < s->stack_a[2])
@@ -24,13 +26,19 @@ void	three_sort(t_stack *s)
 			reverse_rotate(s, OP_A);
 		else if (s->stack_a[0] < s->stack_a[1] && s->stack_a[0] < s->stack_a[2]
 			&& s->stack_a[1] > s->stack_a[2])
-			reverse_rotate(s, OP_A);
+		{
+			swap(s, OP_A);
+			rotate(s, OP_A);
+		}
 		else if (s->stack_a[0] > s->stack_a[1] && s->stack_a[0] > s->stack_a[2]
 			&& s->stack_a[1] < s->stack_a[2])
 			rotate(s, OP_A);
 		else if (s->stack_a[0] > s->stack_a[1] && s->stack_a[0] > s->stack_a[2]
 			&& s->stack_a[1] > s->stack_a[2])
+		{
 			swap(s, OP_A);
+			reverse_rotate(s, OP_A);
+		}
 	}
 }
 
@@ -98,7 +106,7 @@ void	large_sort(t_stack *s)
 			if (s->stack_a[i] < mid)
 				i = rotate_push(s, i, OP_A);
 			else if (s->stack_a[s->len_a - i - 1] < mid)
-				reverse_rotate_push(s, i + 1, OP_A);
+				i = reverse_rotate_push(s, i + 1, OP_A);
 			else
 				i++;
 		}
@@ -112,7 +120,10 @@ void	large_sort(t_stack *s)
 void	sort(t_stack *s)
 {
 	if (s->len_a <= 3)
-		three_sort(s);
+	{
+		while (!is_sorted(s->stack_a, s->len_a))
+			three_sort(s);
+	}
 	else if (s->len_a <= 5)
 		five_sort(s);
 	else
