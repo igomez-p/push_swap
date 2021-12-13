@@ -6,7 +6,7 @@
 /*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 10:45:21 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/12/11 10:58:06 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/13 12:49:48 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 void	three_sort(t_stack *s)
 {
-	if (!is_sorted(s->stack_a, s->len_a) && s->len_a == 2)
-		swap(s, OP_A);
-	else if (!is_sorted(s->stack_a, s->len_a) && s->len_a == 3)
+	if (!is_sorted(s->stack_a, s->len_a) && s->len_a == 3)
 	{
 		if (s->stack_a[0] > s->stack_a[1] && s->stack_a[0] < s->stack_a[2]
 			&& s->stack_a[1] < s->stack_a[2])
@@ -110,7 +108,10 @@ void	large_sort(t_stack *s)
 			else
 				i++;
 		}
-		three_sort(s);
+		if (!is_sorted(s->stack_a, s->len_a) && s->len_a == 2)
+			swap(s, OP_A);
+		else
+			three_sort(s);
 	}
 	large_sortb(s);
 	while (s->len_b)
@@ -121,8 +122,13 @@ void	sort(t_stack *s)
 {
 	if (s->len_a <= 3)
 	{
-		while (!is_sorted(s->stack_a, s->len_a))
-			three_sort(s);
+		if (!is_sorted(s->stack_a, s->len_a) && s->len_a == 2)
+			swap(s, OP_A);
+		else
+		{
+			while (!is_sorted(s->stack_a, s->len_a))
+				three_sort(s);
+		}
 	}
 	else if (s->len_a <= 5)
 		five_sort(s);
