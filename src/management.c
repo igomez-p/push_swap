@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   management.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igomez-p <ire.go.pla@gmail.com>            +#+  +:+       +#+        */
+/*   By: igomez-p <igomez-p@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 23:08:08 by igomez-p          #+#    #+#             */
-/*   Updated: 2021/12/10 18:30:40 by igomez-p         ###   ########.fr       */
+/*   Updated: 2021/12/13 13:11:18 by igomez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	read_stack(t_stack *s, int narg, char **arg)
 
 	i = 0;
 	if (narg < 2 || ft_strncmp(arg[0], "./push_swap", 11))
-		clean_exit(s, FAIL);
+		clean_exit(s, OK);
 	if (narg == 2 && ft_strchr(arg[1], ' '))
 		num = ft_split(arg[1], ' ');
 	else
